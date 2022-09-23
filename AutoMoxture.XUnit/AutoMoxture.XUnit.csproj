@@ -21,14 +21,14 @@
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<Authors>s8Usy429</Authors>
 		<Company>s8Usy429</Company>
-		<Description>A convenient base class to work with AutoMoq.</Description>
+		<Description>Provides a convenient base test class to work with AutoFixture and AutoMoq.</Description>
 		<PackageProjectUrl>https://github.com/s8Usy429/automoxture</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/s8Usy429/automoxture</RepositoryUrl>
-		<PackageTags>AutoMoq;xUnit;unit test;dotnet</PackageTags>
+		<PackageTags>AutoFixture;AutoMoq;XUnit;unit-test;tests;testing;dotnet;.NET;Mock</PackageTags>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-		<Version>1.1.0</Version>
+		<Version>1.1.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

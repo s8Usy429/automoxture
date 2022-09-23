@@ -1,7 +1,5 @@
 # AutoMoxture
 AutoMoxture provides a convenient base test class to work with AutoFixture and AutoMoq so you can inherit all your test classes from it.
-<br/>
-<br/>
 
 ## Back-story
 
@@ -89,10 +87,8 @@ public class ServiceWithDependenciesTests
 }
 ```
 
-It's quite boring to write and it gets even worse if your class have more dependencies.<br/>
+It's quite boring to write and it gets even worse if your class have more dependencies.  
 Also, if you add and/or remove dependencies, it won't build anymore and you have to go fix your tests.
-<br/>
-<br/>
 
 ## AutoMoxture
 
@@ -198,7 +194,7 @@ public class ServiceWithDependenciesTests : AutoMoxtureTest
 }
 ```
 
-This will apply to all the tests in the class.<br/>
+This will apply to all the tests in the class.  
 If you don't want this behavior, call the Customize method directly inside your test method.
 ```cs
 public class ServiceWithDependenciesTests : AutoMoxtureTest

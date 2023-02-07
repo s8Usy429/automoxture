@@ -1,5 +1,6 @@
 ﻿namespace AutoMoxture.Tests.NUnit.WithoutSut
 {
+    using AutoFixture;
     using AutoMoxture.NUnit;
     using FluentAssertions;
     using global::NUnit.Framework;
@@ -11,12 +12,12 @@
         public void AutoMoxtureTest_ServiceWithDependencies()
         {
             // Arrange
-            string prefix = Create<string>();
-            string demo2 = Create<string>();
-            Mock<IDependency2>()
+            string prefix = this.Fixture.Create<string>();
+            string demo2 = this.Fixture.Create<string>();
+            this.Fixture.Mock<IDependency2>()
                 .Setup(s => s.GetString())
                 .Returns(demo2);
-            var sut = Create<ServiceWithDependencies>();
+            var sut = this.Fixture.Create<ServiceWithDependencies>();
 
             // Act
             var response = sut.Concat(prefix);

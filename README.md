@@ -7,11 +7,11 @@ Consider you would like to write unit tests for this class :
 ```cs
 public class ServiceWithDependencies
 {
-    private readonly IDependency1 _dependency1;
-    private readonly IDependency2 _dependency2;
-    private readonly IDependency3 _dependency3;
-    private readonly IDependency4 _dependency4;
-    private readonly IDependency5 _dependency5;
+    private readonly IDependency1 dependency1;
+    private readonly IDependency2 dependency2;
+    private readonly IDependency3 dependency3;
+    private readonly IDependency4 dependency4;
+    private readonly IDependency5 dependency5;
 
     public ServiceWithDependencies(
         IDependency1 dependency1,
@@ -20,21 +20,21 @@ public class ServiceWithDependencies
         IDependency3 dependency4,
         IDependency3 dependency5)
     {
-        _dependency1 = dependency1;
-        _dependency2 = dependency2;
-        _dependency3 = dependency3;
-        _dependency4 = dependency4;
-        _dependency5 = dependency5;
+        this.dependency1 = dependency1;
+        this.dependency2 = dependency2;
+        this.dependency3 = dependency3;
+        this.dependency4 = dependency4;
+        this.dependency5 = dependency5;
     }
 
     public string Concat(string prefix)
     {
         return prefix
-            + _dependency1.GetString()
-            + _dependency2.GetString()
-            + _dependency3.GetString()
-            + _dependency4.GetString()
-            + _dependency5.GetString();
+            + this.dependency1.GetString()
+            + this.dependency2.GetString()
+            + this.dependency3.GetString()
+            + this.dependency4.GetString()
+            + this.dependency5.GetString();
     }
 }
 ```
@@ -71,11 +71,11 @@ public class ServiceWithDependenciesTests
     ...
 
     // Arrange
-    var mockDependency1 = Fixture.Create<Mock<IDependency1>>();
-    var mockDependency2 = Fixture.Create<Mock<IDependency2>>();
-    var mockDependency3 = Fixture.Create<Mock<IDependency3>>();
-    var mockDependency4 = Fixture.Create<Mock<IDependency4>>();
-    var mockDependency5 = Fixture.Create<Mock<IDependency5>>();
+    var mockDependency1 = this.Fixture.Create<Mock<IDependency1>>();
+    var mockDependency2 = this.Fixture.Create<Mock<IDependency2>>();
+    var mockDependency3 = this.Fixture.Create<Mock<IDependency3>>();
+    var mockDependency4 = this.Fixture.Create<Mock<IDependency4>>();
+    var mockDependency5 = this.Fixture.Create<Mock<IDependency5>>();
     var sut = new ServiceWithDependencies(
         mockDependency1.Object,
         mockDependency2.Object,
@@ -115,23 +115,23 @@ That's more or less what AutoMoxture is doing in its base class so you won't hav
         ...
 
         // Act
-        var response = Sut.Concat(...);
+        var response = this.Sut.Concat(...);
 
         ...
     }
     ```
 
-3. AutoMoxture also inherits from AutoFixture.Fixture so AutoFixture methods are directly accessible :
+3. AutoMoxture also exposes an instance of AutoFixture so regular/usual AutoFixture methods are accessible :
     ```cs
     public class ServiceWithDependenciesTests : AutoMoxtureTest<ServiceWithDependencies>
     {
         ...
         
         // Arrange
-        var prefix = Create<string>();
+        var prefix = this.Fixture.Create<string>();
 
         // Act
-        var response = Sut.Concat(prefix);
+        var response = this.Sut.Concat(prefix);
 
         ...
     }
@@ -144,15 +144,15 @@ That's more or less what AutoMoxture is doing in its base class so you won't hav
         ...
 
         // Arrange
-        var prefix = Create<string>();
+        var prefix = this.Fixture.Create<string>();
 
-        var dependentString = Create<string>();
-        Mock<Dependency1>()
+        var dependentString = this.Fixture.Create<string>();
+        this.Fixture.Mock<Dependency1>()
             .Setup(m => m.GetString())
             .Returns(dependentString);
 
         // Act
-        var response = Sut.Concat(prefix);
+        var response = this.Sut.Concat(prefix);
 
         ...
     }
@@ -165,15 +165,15 @@ That's more or less what AutoMoxture is doing in its base class so you won't hav
         ...
 
         // Arrange
-        var prefix = Create<string>();
+        var prefix = this.Fixture.Create<string>();
 
-        var dependentString = Create<string>();
-        Mock<Dependency1>()
+        var dependentString = this.Fixture.Create<string>();
+        this.Fixture.Mock<Dependency1>()
             .Setup(m => m.GetString())
             .Returns(dependentString);
 
         // Act
-        var response = Sut.Concat(prefix);
+        var response = this.Fixture.Sut.Concat(prefix);
 
         // Assert
         response.Should().Contain(dependentString);
@@ -189,7 +189,7 @@ public class ServiceWithDependenciesTests : AutoMoxtureTest
 {
     public class ServiceWithDependenciesTests()
     {
-        Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+        this.Fixture.Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
     }
 }
 ```
@@ -201,7 +201,7 @@ public class ServiceWithDependenciesTests : AutoMoxtureTest
 {
     public void Test1()
     {
-        Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+        this.Fixture.Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
     }
 }
 ```

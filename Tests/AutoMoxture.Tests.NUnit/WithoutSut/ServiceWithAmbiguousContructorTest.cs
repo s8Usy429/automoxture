@@ -1,28 +1,28 @@
 ﻿namespace AutoMoxture.Tests.NUnit.WithoutSut
 {
+    using AutoFixture;
     using AutoFixture.Kernel;
     using AutoMoxture.NUnit;
     using FluentAssertions;
     using global::NUnit.Framework;
 
-    [TestFixture]
     public class ServiceWithAmbiguousContructorTest : AutoMoxtureTest
     {
         public ServiceWithAmbiguousContructorTest()
         {
-            Customize<ServiceWithAmbiguousContructor>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+            this.Fixture.Customize<ServiceWithAmbiguousContructor>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
         }
 
         [Test]
         public void AutoMoxtureTest_ServiceWithAmbiguousContructor()
         {
             // Arrange
-            string prefix = Create<string>();
-            string demo2 = Create<string>();
-            Mock<IDependency2>()
+            string prefix = this.Fixture.Create<string>();
+            string demo2 = this.Fixture.Create<string>();
+            this.Fixture.Mock<IDependency2>()
                 .Setup(s => s.GetString())
                 .Returns(demo2);
-            var sut = Create<ServiceWithAmbiguousContructor>();
+            var sut = this.Fixture.Create<ServiceWithAmbiguousContructor>();
 
             // Act
             var response = sut.Concat(prefix);

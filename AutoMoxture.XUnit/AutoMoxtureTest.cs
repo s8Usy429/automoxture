@@ -1,7 +1,9 @@
-#pragma warning disable SA1402 // File may only contain a single type.
+#pragma warning disable SA1402  // File may only contain a single type.
+#pragma warning disable S2376  // Replace set-only property by a method.
 
 namespace AutoMoxture.XUnit
 {
+    using System;
     using AutoFixture;
     using AutoFixture.AutoMoq;
 
@@ -30,12 +32,33 @@ namespace AutoMoxture.XUnit
     /// <typeparam name="TSut">The type of the system under test (SUT).</typeparam>
     public abstract class AutoMoxtureTest<TSut> : AutoMoxtureTest
     {
+        private Lazy<TSut> lazySut;
+
         /// <summary>
-        /// Gets a frozen instance of SUT.
+        /// Initializes a new instance of the <see cref="AutoMoxtureTest{TSut}"/> class.
         /// </summary>
-        /// <returns>A frozen instance of the SUT.</returns>
-        protected TSut Sut => this.Fixture.Freeze<TSut>();
+        protected AutoMoxtureTest()
+        {
+            this.SutFactory = () => this.Fixture.Freeze<TSut>();
+        }
+
+        /// <summary>
+        /// Gets an instance of the SUT.
+        /// </summary>
+        protected TSut Sut => this.lazySut.Value;
+
+        /// <summary>
+        /// Sets a creation function for the SUT.
+        /// </summary>
+        protected Func<TSut> SutFactory
+        {
+            set
+            {
+                this.lazySut = new Lazy<TSut>(value);
+            }
+        }
     }
 }
 
-#pragma warning restore SA1402
+#pragma warning restore SA1402  // File may only contain a single type.
+#pragma warning restore S2376  // Replace set-only property by a method.

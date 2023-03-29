@@ -205,3 +205,26 @@ public class ServiceWithDependenciesTests : AutoMoxtureTest
     }
 }
 ```
+
+## Customize the SUT factory
+Sometimes you need to control the way the SUT is created.
+More likely, you may have a single test that needs a particular SUT setup.
+You can provide a neww factory at any time like this:
+```cs
+// Do stuff with the old/regular SUT
+var sutBeforeChange = this.Sut;
+
+// Provide a new factory
+this.SutFactory = () => new TheSutType();
+
+// Do stuff with the new/latest SUT
+var sutAfterChange = this.Sut;
+```
+
+Note that the SUT will still keep its value after being reassigned:
+```cs
+this.SutFactory = () => new TheSutType();
+var sutAfterChange1 = this.Sut;
+var sutAfterChange2 = this.Sut;
+// Then sutAfterChange1 == sutAfterChange2
+```

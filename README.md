@@ -209,7 +209,7 @@ public class ServiceWithDependenciesTests : AutoMoxtureTest
 ## Customize the SUT factory
 Sometimes you need to control the way the SUT is created.
 More likely, you may have a single test that needs a particular SUT setup.
-You can provide a neww factory at any time like this:
+You can provide a new factory at any time like this:
 ```cs
 // Do stuff with the old/regular SUT
 var sutBeforeChange = this.Sut;

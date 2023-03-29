@@ -28,7 +28,7 @@
 		<PackageTags>AutoFixture;AutoMoq;NUnit;unit-test;tests;testing;dotnet;.NET;Mock</PackageTags>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-		<Version>2.1.0</Version>
+		<Version>2.1.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

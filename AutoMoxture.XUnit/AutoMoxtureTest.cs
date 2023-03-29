@@ -39,7 +39,7 @@ namespace AutoMoxture.XUnit
         /// </summary>
         protected AutoMoxtureTest()
         {
-            this.SutFactory = () => this.Fixture.Freeze<TSut>();
+            this.SutFactory = () => this.Fixture.Create<TSut>();
         }
 
         /// <summary>
@@ -54,7 +54,12 @@ namespace AutoMoxture.XUnit
         {
             set
             {
-                this.lazySut = new Lazy<TSut>(value);
+                this.lazySut = new Lazy<TSut>(() =>
+                {
+                    TSut sut = value();
+                    this.Fixture.Inject<TSut>(sut);
+                    return sut;
+                });
             }
         }
     }

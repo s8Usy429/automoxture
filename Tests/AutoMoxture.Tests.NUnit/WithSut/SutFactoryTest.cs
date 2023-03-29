@@ -1,5 +1,6 @@
 namespace AutoMoxture.Tests.NUnit.WithSut
 {
+    using AutoFixture;
     using AutoMoxture.NUnit;
     using FluentAssertions;
     using global::NUnit.Framework;
@@ -50,6 +51,21 @@ namespace AutoMoxture.Tests.NUnit.WithSut
             Guid id3 = this.Sut.Id;
             id1.Should().NotBe(id2);
             id2.Should().Be(id3);
+        }
+
+        [Test]
+        public void SutFactory_WhenReassigned_AutoFixtureShouldAlsoBeUpdated()
+        {
+            Guid id1 = this.Sut.Id;
+            Guid id2 = this.Fixture.Freeze<SomeSut>().Id;
+
+            this.SutFactory = () => new SomeSut { Id = Guid.NewGuid() };
+
+            Guid id3 = this.Sut.Id;
+            Guid id4 = this.Fixture.Freeze<SomeSut>().Id;
+
+            id1.Should().Be(id2);
+            id3.Should().Be(id4);
         }
     }
 }

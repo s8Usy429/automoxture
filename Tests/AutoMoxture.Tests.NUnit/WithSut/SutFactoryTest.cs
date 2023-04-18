@@ -56,11 +56,14 @@ namespace AutoMoxture.Tests.NUnit.WithSut
         [Test]
         public void SutFactory_WhenReassigned_AutoFixtureShouldAlsoBeUpdated()
         {
+            // Arrange
             Guid id1 = this.Sut.Id;
             Guid id2 = this.Fixture.Freeze<SomeSut>().Id;
 
+            // Act
             this.SutFactory = () => new SomeSut { Id = Guid.NewGuid() };
 
+            // Assert
             Guid id3 = this.Sut.Id;
             Guid id4 = this.Fixture.Freeze<SomeSut>().Id;
 

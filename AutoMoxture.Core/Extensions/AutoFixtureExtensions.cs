@@ -14,6 +14,7 @@
         /// </summary>
         /// <param name="fixture">An instance of AutoFixture to extend.</param>
         /// <typeparam name="T">The type of the Mock.</typeparam>
+        /// <returns>A frozen Mock of the given type.</returns>
         public static Mock<T> Mock<T>(this IFixture fixture) where T : class
         {
             return fixture.Freeze<Mock<T>>();

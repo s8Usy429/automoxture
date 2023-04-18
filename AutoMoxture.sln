@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.Tests.NUnit", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.Tests.XUnit", "Tests\AutoMoxture.Tests.XUnit\AutoMoxture.Tests.XUnit.csproj", "{44ED95AB-5058-4D61-9765-7D79D01ED5E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.Core", "AutoMoxture.Core\AutoMoxture.Core.csproj", "{12D500B3-BA3A-4F6F-910F-BA8125223CCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.Tests", "Tests\AutoMoxture.Tests\AutoMoxture.Tests.csproj", "{629FF1A3-4135-4468-8030-2580201371DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,9 +42,18 @@ Global
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{629FF1A3-4135-4468-8030-2580201371DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629FF1A3-4135-4468-8030-2580201371DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629FF1A3-4135-4468-8030-2580201371DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629FF1A3-4135-4468-8030-2580201371DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E70EC418-C2E7-4F4D-A2AD-ABB038711BFA} = {D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1} = {D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}
+		{629FF1A3-4135-4468-8030-2580201371DD} = {D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}
 	EndGlobalSection
 EndGlobal

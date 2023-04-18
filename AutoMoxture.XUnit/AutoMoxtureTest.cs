@@ -32,35 +32,17 @@ namespace AutoMoxture.XUnit
     /// <typeparam name="TSut">The type of the system under test (SUT).</typeparam>
     public abstract class AutoMoxtureTest<TSut> : AutoMoxtureTest
     {
-        private Lazy<TSut> lazySut;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AutoMoxtureTest{TSut}"/> class.
-        /// </summary>
-        protected AutoMoxtureTest()
-        {
-            this.SutFactory = () => this.Fixture.Create<TSut>();
-        }
-
         /// <summary>
         /// Gets an instance of the SUT.
         /// </summary>
-        protected TSut Sut => this.lazySut.Value;
+        protected TSut Sut => this.Fixture.Freeze<TSut>();
 
         /// <summary>
         /// Sets a creation function for the SUT.
         /// </summary>
         protected Func<TSut> SutFactory
         {
-            set
-            {
-                this.lazySut = new Lazy<TSut>(() =>
-                {
-                    TSut sut = value();
-                    this.Fixture.Inject<TSut>(sut);
-                    return sut;
-                });
-            }
+            set => this.Fixture.Register<TSut>(value);
         }
     }
 }

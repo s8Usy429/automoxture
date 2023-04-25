@@ -12,17 +12,21 @@ namespace AutoMoxture.XUnit
     /// </summary>
     public abstract class AutoMoxtureTest
     {
+        private readonly Lazy<IFixture> lazyFixture;
+
         /// <summary>
         /// Gets an instance of AutoFixture registered with AutoMoq.
         /// </summary>
-        protected IFixture Fixture { get; }
+        protected IFixture Fixture => this.lazyFixture.Value;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoMoxtureTest"/> class.
         /// </summary>
         protected AutoMoxtureTest()
         {
-            this.Fixture = new Fixture().Customize(new AutoMoqCustomization());
+            this.lazyFixture = new Lazy<IFixture>(
+                () => new Fixture().Customize(new AutoMoqCustomization()),
+                isThreadSafe: false);
         }
     }
 

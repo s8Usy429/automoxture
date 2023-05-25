@@ -1,14 +1,14 @@
-﻿namespace AutoMoxture.Tests.NUnit.WithoutSut
+﻿namespace AutoMoxture.XUnit.Tests.WithoutSut
 {
     using AutoFixture;
-    using AutoMoxture.NUnit;
+    using AutoMoxture.Testing;
+    using AutoMoxture.XUnit;
     using FluentAssertions;
-    using global::NUnit.Framework;
+    using Xunit;
 
-    [TestFixture]
     public class ServiceWithDependenciesTest : AutoMoxtureTest
     {
-        [Test]
+        [Fact]
         public void AutoMoxtureTest_ServiceWithDependencies()
         {
             // Arrange

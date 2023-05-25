@@ -1,7 +1,8 @@
-﻿namespace AutoMoxture.Tests.XUnit.WithoutSut
+﻿namespace AutoMoxture.XUnit.Tests.WithoutSut
 {
     using AutoFixture;
     using AutoFixture.Kernel;
+    using AutoMoxture.Testing;
     using AutoMoxture.XUnit;
     using FluentAssertions;
     using Xunit;

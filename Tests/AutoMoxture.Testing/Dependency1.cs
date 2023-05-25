@@ -1,6 +1,6 @@
-﻿namespace AutoMoxture.Tests
+﻿namespace AutoMoxture.Testing
 {
-    public class Dependency2 : IDependency2
+    public class Dependency1 : IDependency1
     {
         public string GetString()
         {

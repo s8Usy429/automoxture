@@ -2,12 +2,12 @@
 
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-    <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.6.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AutoMoxture.Tests\AutoMoxture.Tests.csproj" />
+    <ProjectReference Include="..\..\AutoMoxture.Core\AutoMoxture.Core.csproj" />
     <ProjectReference Include="..\..\AutoMoxture.NUnit\AutoMoxture.NUnit.csproj" />
   </ItemGroup>
 

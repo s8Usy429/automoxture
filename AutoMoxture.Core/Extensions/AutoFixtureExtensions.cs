@@ -1,6 +1,7 @@
 ﻿namespace AutoMoxture
 {
     using AutoFixture;
+    using AutoFixture.AutoMoq;
     using Moq;
 
     /// <summary>
@@ -18,6 +19,39 @@
         public static Mock<T> Mock<T>(this IFixture fixture) where T : class
         {
             return fixture.Freeze<Mock<T>>();
+        }
+
+        /// <summary>
+        /// Enable AutoMoq customizations.
+        /// </summary>
+        /// <param name="fixture">An instance of AutoFixture to extend.</param>
+        public static void EnableAutoMoq(this IFixture fixture)
+        {
+            fixture.DisableAutoMoq();
+            fixture.Customize(new AutoMoqCustomization());
+        }
+
+        /// <summary>
+        /// Disable AutoMoq customizations.
+        /// </summary>
+        /// <param name="fixture">An instance of AutoFixture to extend.</param>
+        public static void DisableAutoMoq(this IFixture fixture)
+        {
+            for (int i = fixture.Customizations.Count - 1; i > -1; --i)
+            {
+                if (fixture.Customizations[i] is MockPostprocessor)
+                {
+                    fixture.Customizations.RemoveAt(i);
+                }
+            }
+
+            for (int i = fixture.ResidueCollectors.Count - 1; i > -1; --i)
+            {
+                if (fixture.ResidueCollectors[i] is MockRelay)
+                {
+                    fixture.ResidueCollectors.RemoveAt(i);
+                }
+            }
         }
     }
 }

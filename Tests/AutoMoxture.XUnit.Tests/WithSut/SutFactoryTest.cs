@@ -1,14 +1,14 @@
-namespace AutoMoxture.Tests.NUnit.WithSut
+namespace AutoMoxture.XUnit.Tests.WithSut
 {
     using AutoFixture;
-    using AutoMoxture.NUnit;
+    using AutoMoxture.Testing;
+    using AutoMoxture.XUnit;
     using FluentAssertions;
-    using global::NUnit.Framework;
+    using Xunit;
 
-    [TestFixture]
     public class SutFactoryTest : AutoMoxtureTest<SomeSut>
     {
-        [Test]
+        [Fact]
         public void SutFactory_WhenNotReassigned_ShouldProduceSameValue()
         {
             // Arrange
@@ -23,7 +23,7 @@ namespace AutoMoxture.Tests.NUnit.WithSut
             id1.Should().Be(id2);
         }
 
-        [Test]
+        [Fact]
         public void SutFactory_WhenReassigned_ShouldProduceDifferentValue()
         {
             // Arrange
@@ -37,7 +37,7 @@ namespace AutoMoxture.Tests.NUnit.WithSut
             id1.Should().NotBe(id2);
         }
 
-        [Test]
+        [Fact]
         public void SutFactory_AfterReassigned_ShouldProduceSameValue()
         {
             // Arrange
@@ -53,7 +53,7 @@ namespace AutoMoxture.Tests.NUnit.WithSut
             id2.Should().Be(id3);
         }
 
-        [Test]
+        [Fact]
         public void SutFactory_WhenReassigned_AutoFixtureShouldAlsoBeUpdated()
         {
             // Arrange

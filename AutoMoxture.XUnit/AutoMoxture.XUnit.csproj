@@ -27,7 +27,7 @@
 		<PackageTags>AutoFixture;AutoMoq;XUnit;unit-test;tests;testing;dotnet;.NET;Mock</PackageTags>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-		<Version>3.1.0</Version>
+		<Version>4.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -42,7 +42,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoFixture.AutoMoq" Version="4.17.0" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
 	</ItemGroup>
 

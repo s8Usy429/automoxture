@@ -1,8 +1,8 @@
-﻿namespace AutoMoxture.Tests.NUnit.WithSut
+﻿namespace AutoMoxture.NUnit.Tests.WithSut
 {
     using AutoFixture;
     using AutoFixture.Kernel;
-    using AutoMoxture.NUnit;
+    using AutoMoxture.Testing;
     using FluentAssertions;
     using global::NUnit.Framework;
 

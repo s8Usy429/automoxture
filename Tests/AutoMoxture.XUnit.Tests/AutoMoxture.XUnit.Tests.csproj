@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AutoMoxture.Tests\AutoMoxture.Tests.csproj" />
+    <ProjectReference Include="..\AutoMoxture.Testing\AutoMoxture.Testing.csproj" />
     <ProjectReference Include="..\..\AutoMoxture.XUnit\AutoMoxture.XUnit.csproj" />
   </ItemGroup>
 

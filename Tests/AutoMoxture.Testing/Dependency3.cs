@@ -1,4 +1,4 @@
-﻿namespace AutoMoxture.Tests
+﻿namespace AutoMoxture.Testing
 {
     public class Dependency3 : IDependency3
     {

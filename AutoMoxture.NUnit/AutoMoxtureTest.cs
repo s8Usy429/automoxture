@@ -21,14 +21,65 @@ namespace AutoMoxture.NUnit
         /// </summary>
         protected IFixture Fixture => this.lazyFixture.Value;
 
+        private bool enableAutoMoq;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoMoxtureTest"/> class.
         /// </summary>
         protected AutoMoxtureTest()
+            : this(enableAutoMoq: true)
         {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AutoMoxtureTest"/> class.
+        /// </summary>
+        /// <param name="enableAutoMoq">A boolean indicating whether to enable AutoMoq customizations.</param>
+        protected AutoMoxtureTest(bool enableAutoMoq)
+        {
+            this.enableAutoMoq = enableAutoMoq;
+
             this.lazyFixture = new Lazy<IFixture>(
-                () => new Fixture().Customize(new AutoMoqCustomization()),
-                isThreadSafe: false);
+                () =>
+                {
+                    var fixture = new Fixture();
+                    if (this.enableAutoMoq)
+                    {
+                        fixture.Customize(new AutoMoqCustomization());
+                    }
+
+                    return fixture;
+                });
+        }
+
+        /// <summary>
+        /// Enable AutoMoq customizations.
+        /// </summary>
+        protected void EnableAutoMoq()
+        {
+            if (this.lazyFixture.IsValueCreated)
+            {
+                this.Fixture.EnableAutoMoq();
+            }
+            else
+            {
+                this.enableAutoMoq = true;
+            }
+        }
+
+        /// <summary>
+        /// Disable AutoMoq customizations.
+        /// </summary>
+        protected void DisableAutoMoq()
+        {
+            if (this.lazyFixture.IsValueCreated)
+            {
+                this.Fixture.DisableAutoMoq();
+            }
+            else
+            {
+                this.enableAutoMoq = false;
+            }
         }
     }
 

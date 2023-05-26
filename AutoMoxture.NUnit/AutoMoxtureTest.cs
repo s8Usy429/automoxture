@@ -1,104 +1,103 @@
-﻿namespace AutoMoxture.NUnit
+﻿namespace AutoMoxture.NUnit;
+
+using System;
+
+using AutoFixture;
+using AutoFixture.AutoMoq;
+
+using global::NUnit.Framework;
+
+/// <summary>
+/// Base class to get started with AutoFixture and Automoq.
+/// </summary>
+[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+public abstract class AutoMoxtureTest
 {
-    using System;
-
-    using AutoFixture;
-    using AutoFixture.AutoMoq;
-
-    using global::NUnit.Framework;
+    private readonly Lazy<IFixture> lazyFixture;
 
     /// <summary>
-    /// Base class to get started with AutoFixture and Automoq.
+    /// Gets an instance of AutoFixture registered with AutoMoq.
     /// </summary>
-    [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
-    public abstract class AutoMoxtureTest
+    protected IFixture Fixture => this.lazyFixture.Value;
+
+    private bool enableAutoMoq;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AutoMoxtureTest"/> class.
+    /// </summary>
+    protected AutoMoxtureTest()
+        : this(enableAutoMoq: true)
     {
-        private readonly Lazy<IFixture> lazyFixture;
+    }
 
-        /// <summary>
-        /// Gets an instance of AutoFixture registered with AutoMoq.
-        /// </summary>
-        protected IFixture Fixture => this.lazyFixture.Value;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AutoMoxtureTest"/> class.
+    /// </summary>
+    /// <param name="enableAutoMoq">A boolean indicating whether to enable AutoMoq customizations.</param>
+    protected AutoMoxtureTest(bool enableAutoMoq)
+    {
+        this.enableAutoMoq = enableAutoMoq;
 
-        private bool enableAutoMoq;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AutoMoxtureTest"/> class.
-        /// </summary>
-        protected AutoMoxtureTest()
-            : this(enableAutoMoq: true)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AutoMoxtureTest"/> class.
-        /// </summary>
-        /// <param name="enableAutoMoq">A boolean indicating whether to enable AutoMoq customizations.</param>
-        protected AutoMoxtureTest(bool enableAutoMoq)
-        {
-            this.enableAutoMoq = enableAutoMoq;
-
-            this.lazyFixture = new Lazy<IFixture>(
-                () =>
+        this.lazyFixture = new Lazy<IFixture>(
+            () =>
+            {
+                var fixture = new Fixture();
+                if (this.enableAutoMoq)
                 {
-                    var fixture = new Fixture();
-                    if (this.enableAutoMoq)
-                    {
-                        fixture.Customize(new AutoMoqCustomization());
-                    }
+                    fixture.Customize(new AutoMoqCustomization());
+                }
 
-                    return fixture;
-                });
-        }
+                return fixture;
+            });
+    }
 
-        /// <summary>
-        /// Enable AutoMoq customizations.
-        /// </summary>
-        protected void EnableAutoMoq()
+    /// <summary>
+    /// Enable AutoMoq customizations.
+    /// </summary>
+    protected void EnableAutoMoq()
+    {
+        if (this.lazyFixture.IsValueCreated)
         {
-            if (this.lazyFixture.IsValueCreated)
-            {
-                this.Fixture.EnableAutoMoq();
-            }
-            else
-            {
-                this.enableAutoMoq = true;
-            }
+            this.Fixture.EnableAutoMoq();
         }
-
-        /// <summary>
-        /// Disable AutoMoq customizations.
-        /// </summary>
-        protected void DisableAutoMoq()
+        else
         {
-            if (this.lazyFixture.IsValueCreated)
-            {
-                this.Fixture.DisableAutoMoq();
-            }
-            else
-            {
-                this.enableAutoMoq = false;
-            }
+            this.enableAutoMoq = true;
         }
     }
 
     /// <summary>
-    /// Base class to get started with AutoFixture and Automoq.
+    /// Disable AutoMoq customizations.
     /// </summary>
-    /// <typeparam name="TSut">The type of the system under test (SUT).</typeparam>
-    public abstract class AutoMoxtureTest<TSut> : AutoMoxtureTest
+    protected void DisableAutoMoq()
     {
-        /// <summary>
-        /// Gets an instance of the SUT.
-        /// </summary>
-        protected TSut Sut => this.Fixture.Freeze<TSut>();
-
-        /// <summary>
-        /// Sets a creation function for the SUT.
-        /// </summary>
-        protected Func<TSut> SutFactory
+        if (this.lazyFixture.IsValueCreated)
         {
-            set => this.Fixture.Register<TSut>(value);
+            this.Fixture.DisableAutoMoq();
         }
+        else
+        {
+            this.enableAutoMoq = false;
+        }
+    }
+}
+
+/// <summary>
+/// Base class to get started with AutoFixture and Automoq.
+/// </summary>
+/// <typeparam name="TSut">The type of the system under test (SUT).</typeparam>
+public abstract class AutoMoxtureTest<TSut> : AutoMoxtureTest
+{
+    /// <summary>
+    /// Gets an instance of the SUT.
+    /// </summary>
+    protected TSut Sut => this.Fixture.Freeze<TSut>();
+
+    /// <summary>
+    /// Sets a creation function for the SUT.
+    /// </summary>
+    protected Func<TSut> SutFactory
+    {
+        set => this.Fixture.Register<TSut>(value);
     }
 }

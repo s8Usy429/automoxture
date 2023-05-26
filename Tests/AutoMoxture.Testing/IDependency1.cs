@@ -1,7 +1,6 @@
-﻿namespace AutoMoxture.Testing
+﻿namespace AutoMoxture.Testing;
+
+public interface IDependency1
 {
-    public interface IDependency1
-    {
-        string GetString();
-    }
+    string GetString();
 }

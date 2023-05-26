@@ -1,12 +1,11 @@
-﻿namespace AutoMoxture.Testing
-{
-    using System;
+﻿namespace AutoMoxture.Testing;
 
-    public class Dependency2 : IDependency2
+using System;
+
+public class Dependency2 : IDependency2
+{
+    public string GetString()
     {
-        public string GetString()
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
     }
 }

@@ -1,9 +1,8 @@
-namespace AutoMoxture.Testing
-{
-    using System;
+namespace AutoMoxture.Testing;
 
-    public class SomeSut
-    {
-        public Guid Id { get; init; }
-    }
+using System;
+
+public class SomeSut
+{
+    public Guid Id { get; init; }
 }

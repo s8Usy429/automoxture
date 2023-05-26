@@ -2,8 +2,11 @@
 {
     using AutoFixture;
     using AutoFixture.Kernel;
+
     using AutoMoxture.Testing;
+
     using FluentAssertions;
+
     using global::NUnit.Framework;
 
     [TestFixture]

@@ -1,10 +1,14 @@
 namespace AutoMoxture.Core.Tests;
 
-using System;
+using System.Linq;
+
 using AutoFixture;
 using AutoFixture.AutoMoq;
+
 using AutoMoxture.NUnit;
+
 using FluentAssertions;
+
 using global::NUnit.Framework;
 
 public class AutoFixtureExtensionsTests : AutoMoxtureTest<Fixture>

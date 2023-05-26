@@ -1,9 +1,13 @@
 namespace AutoMoxture.XUnit.Tests.WithSut
 {
+    using System;
+
     using AutoFixture;
+
     using AutoMoxture.Testing;
-    using AutoMoxture.XUnit;
+
     using FluentAssertions;
+
     using Xunit;
 
     public class SutFactoryTest : AutoMoxtureTest<SomeSut>

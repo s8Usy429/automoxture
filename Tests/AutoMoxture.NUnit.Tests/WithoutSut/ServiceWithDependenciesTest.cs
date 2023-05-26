@@ -1,8 +1,11 @@
 ﻿namespace AutoMoxture.NUnit.Tests.WithoutSut
 {
     using AutoFixture;
+
     using AutoMoxture.Testing;
+
     using FluentAssertions;
+
     using global::NUnit.Framework;
 
     [TestFixture]

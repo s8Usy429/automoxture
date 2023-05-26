@@ -2,9 +2,11 @@
 {
     using AutoFixture;
     using AutoFixture.Kernel;
+
     using AutoMoxture.Testing;
-    using AutoMoxture.XUnit;
+
     using FluentAssertions;
+
     using Xunit;
 
     public class ServiceWithAmbiguousContructorTest : AutoMoxtureTest<ServiceWithAmbiguousContructor>

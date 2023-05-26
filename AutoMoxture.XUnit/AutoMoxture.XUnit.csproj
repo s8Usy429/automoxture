@@ -5,12 +5,6 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<EnableNETAnalyzers>True</EnableNETAnalyzers>
-		<AnalysisLevel>latest</AnalysisLevel>
-		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-	</PropertyGroup>
-
-	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 
@@ -27,7 +21,7 @@
 		<PackageTags>AutoFixture;AutoMoq;XUnit;unit-test;tests;testing;dotnet;.NET;Mock</PackageTags>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-		<Version>4.0.0</Version>
+		<Version>4.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

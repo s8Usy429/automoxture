@@ -1,6 +1,19 @@
 root = true
 
+[**AutoMoxtureTest.cs]
+# SA1402: File may only contain a single type
+dotnet_diagnostic.SA1402.severity = none
+# S2376: Replace set-only property by a method.
+dotnet_diagnostic.S2376.severity = none
+
 [*.cs]
+
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = true
+csharp_using_directive_placement = inside_namespace:warning
+dotnet_diagnostic.IDE0055.severity = error
+dotnet_diagnostic.IDE0065.severity = error
+dotnet_diagnostic.SA1200.severity = error
 
 # SA1633: The file header is missing or not located at the top of the file
 dotnet_diagnostic.SA1633.severity = none
@@ -10,3 +23,8 @@ dotnet_diagnostic.SA1127.severity = none
 
 # SA1201: Constructor should not follow a property
 dotnet_diagnostic.SA1201.severity = none
+
+# IDE0005/CS8019/S1128 : Useless using statements
+dotnet_diagnostic.IDE0005.severity = error
+dotnet_diagnostic.CS8019.severity = error
+dotnet_diagnostic.S1128.severity = error

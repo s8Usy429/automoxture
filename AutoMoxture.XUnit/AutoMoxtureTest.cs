@@ -1,9 +1,7 @@
-#pragma warning disable SA1402  // File may only contain a single type.
-#pragma warning disable S2376  // Replace set-only property by a method.
-
 namespace AutoMoxture.XUnit
 {
     using System;
+
     using AutoFixture;
     using AutoFixture.AutoMoq;
 
@@ -101,6 +99,3 @@ namespace AutoMoxture.XUnit
         }
     }
 }
-
-#pragma warning restore SA1402  // File may only contain a single type.
-#pragma warning restore S2376  // Replace set-only property by a method.

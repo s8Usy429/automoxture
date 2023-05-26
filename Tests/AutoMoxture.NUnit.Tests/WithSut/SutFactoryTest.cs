@@ -1,8 +1,13 @@
 namespace AutoMoxture.NUnit.Tests.WithSut
 {
+    using System;
+
     using AutoFixture;
+
     using AutoMoxture.Testing;
+
     using FluentAssertions;
+
     using global::NUnit.Framework;
 
     [TestFixture]

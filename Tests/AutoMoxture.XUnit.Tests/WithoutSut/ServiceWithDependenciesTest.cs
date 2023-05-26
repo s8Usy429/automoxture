@@ -1,9 +1,11 @@
 ﻿namespace AutoMoxture.XUnit.Tests.WithoutSut
 {
     using AutoFixture;
+
     using AutoMoxture.Testing;
-    using AutoMoxture.XUnit;
+
     using FluentAssertions;
+
     using Xunit;
 
     public class ServiceWithDependenciesTest : AutoMoxtureTest

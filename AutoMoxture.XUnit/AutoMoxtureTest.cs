@@ -45,7 +45,8 @@ public abstract class AutoMoxtureTest
                 }
 
                 return fixture;
-            });
+            },
+            isThreadSafe: false);
     }
 
     /// <summary>

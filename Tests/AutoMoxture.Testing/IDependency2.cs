@@ -1,4 +1,4 @@
-﻿namespace AutoMoxture.Testing;
+namespace AutoMoxture.Testing;
 
 public interface IDependency2
 {

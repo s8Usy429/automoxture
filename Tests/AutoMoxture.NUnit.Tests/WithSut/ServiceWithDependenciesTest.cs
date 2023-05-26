@@ -1,4 +1,4 @@
-﻿namespace AutoMoxture.NUnit.Tests.WithSut;
+namespace AutoMoxture.NUnit.Tests.WithSut;
 
 using AutoFixture;
 

@@ -1,4 +1,4 @@
-﻿namespace AutoMoxture;
+namespace AutoMoxture;
 
 using AutoFixture;
 using AutoFixture.AutoMoq;

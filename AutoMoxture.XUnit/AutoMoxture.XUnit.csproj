@@ -17,7 +17,7 @@
 		<PackageTags>AutoFixture;AutoMoq;XUnit;unit-test;tests;testing;dotnet;.NET;Mock</PackageTags>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-		<Version>7.0.0</Version>
+		<Version>7.0.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

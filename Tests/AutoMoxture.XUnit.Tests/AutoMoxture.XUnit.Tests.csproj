@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AutoMoxture.Testing\AutoMoxture.Testing.csproj" />
     <ProjectReference Include="..\..\AutoMoxture.XUnit\AutoMoxture.XUnit.csproj" />
+    <ProjectReference Include="..\..\AutoMoxture.Core\AutoMoxture.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AutoMoxture.Testing\AutoMoxture.Testing.csproj" />
     <ProjectReference Include="..\..\AutoMoxture.NUnit\AutoMoxture.NUnit.csproj" />
+    <ProjectReference Include="..\..\AutoMoxture.Core\AutoMoxture.Core.csproj" />
   </ItemGroup>
 
 </Project>

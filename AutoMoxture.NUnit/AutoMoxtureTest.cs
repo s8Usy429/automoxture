@@ -61,10 +61,8 @@ public abstract class AutoMoxtureTest
         {
             this.Fixture.EnableAutoMoq();
         }
-        else
-        {
-            this.enableAutoMoq = true;
-        }
+
+        this.enableAutoMoq = true;
     }
 
     /// <summary>
@@ -76,10 +74,8 @@ public abstract class AutoMoxtureTest
         {
             this.Fixture.DisableAutoMoq();
         }
-        else
-        {
-            this.enableAutoMoq = false;
-        }
+
+        this.enableAutoMoq = false;
     }
 }
 

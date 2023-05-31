@@ -10,7 +10,7 @@
     <When Condition="$(MSBuildProjectName)!='AutoMoxture.Testing'">
       <ItemGroup>
         <PackageReference Include="FluentAssertions" Version="6.11.0" />
-        <PackageReference Include="FluentAssertions.Analyzers" Version="0.17.3">
+        <PackageReference Include="FluentAssertions.Analyzers" Version="0.19.1">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

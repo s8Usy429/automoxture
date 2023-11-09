@@ -14,16 +14,16 @@ public class ServiceWithAmbiguousContructorTest : AutoMoxtureTest<ServiceWithAmb
 {
     public ServiceWithAmbiguousContructorTest()
     {
-        this.Fixture.Customize<ServiceWithAmbiguousContructor>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+        this.Customize<ServiceWithAmbiguousContructor>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
     }
 
     [Test]
     public void AutoMoxtureTest_ServiceWithAmbiguousContructor()
     {
         // Arrange
-        string prefix = this.Fixture.Create<string>();
-        string demo2 = this.Fixture.Create<string>();
-        this.Fixture.Mock<IDependency2>()
+        string prefix = this.Create<string>();
+        string demo2 = this.Create<string>();
+        this.Mock<IDependency2>()
             .Setup(s => s.GetString())
             .Returns(demo2);
 

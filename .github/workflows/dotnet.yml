@@ -28,13 +28,13 @@ jobs:
         run: dotnet test -c Release --no-build --verbosity normal
         
       - name: Publish AutoMoxture.NUnit
-        run: dotnet nuget push AutoMoxture.NUnit/bin/Release/*.nupkg -s https://nuget.pkg.github.com/s8Usy429/index.json -k ${{secrets.GITHUB_TOKEN}}
+        run: dotnet nuget push src/AutoMoxture.NUnit/bin/Release/*.nupkg -s https://nuget.pkg.github.com/s8Usy429/index.json -k ${{secrets.GITHUB_TOKEN}}
 
       - name: Publish AutoMoxture.XUnit
-        run: dotnet nuget push AutoMoxture.XUnit/bin/Release/*.nupkg -s https://nuget.pkg.github.com/s8Usy429/index.json -k ${{secrets.GITHUB_TOKEN}}
+        run: dotnet nuget push src/AutoMoxture.XUnit/bin/Release/*.nupkg -s https://nuget.pkg.github.com/s8Usy429/index.json -k ${{secrets.GITHUB_TOKEN}}
 
       - name: Publish AutoMoxture.NUnit (nuget.org)
-        run: dotnet nuget push AutoMoxture.NUnit/bin/Release/*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGET_API_KEY}}
+        run: dotnet nuget push src/AutoMoxture.NUnit/bin/Release/*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGET_API_KEY}}
 
       - name: Publish AutoMoxture.XUnit (nuget.org)
-        run: dotnet nuget push AutoMoxture.XUnit/bin/Release/*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGET_API_KEY}}
+        run: dotnet nuget push src/AutoMoxture.XUnit/bin/Release/*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGET_API_KEY}}

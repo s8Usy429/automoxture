@@ -62,14 +62,14 @@ public class SutFactoryTest : AutoMoxtureTest<SomeSut>
     {
         // Arrange
         Guid id1 = this.Sut.Id;
-        Guid id2 = this.Fixture.Freeze<SomeSut>().Id;
+        Guid id2 = this.Freeze<SomeSut>().Id;
 
         // Act
         this.SutFactory = () => new SomeSut { Id = Guid.NewGuid() };
 
         // Assert
         Guid id3 = this.Sut.Id;
-        Guid id4 = this.Fixture.Freeze<SomeSut>().Id;
+        Guid id4 = this.Freeze<SomeSut>().Id;
 
         id1.Should().Be(id2);
         id3.Should().Be(id4);

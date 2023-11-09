@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<PackageTags>AutoFixture;AutoMoq;XUnit;unit-test;tests;testing;dotnet;.NET;Mock</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoFixture.Xunit2" Version="4.18.0" />
+	</ItemGroup>
+
+</Project>

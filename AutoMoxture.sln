@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.NUnit", "AutoMoxture.NUnit\AutoMoxture.NUnit.csproj", "{EDB9D727-3C16-42A3-81CF-90B9425354A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.NUnit", "src\AutoMoxture.NUnit\AutoMoxture.NUnit.csproj", "{EDB9D727-3C16-42A3-81CF-90B9425354A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.XUnit", "AutoMoxture.XUnit\AutoMoxture.XUnit.csproj", "{26C24081-EC29-4150-9513-5FD0B6D328A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.XUnit", "src\AutoMoxture.XUnit\AutoMoxture.XUnit.csproj", "{26C24081-EC29-4150-9513-5FD0B6D328A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}"
 EndProject
@@ -13,11 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.NUnit.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.XUnit.Tests", "Tests\AutoMoxture.XUnit.Tests\AutoMoxture.XUnit.Tests.csproj", "{44ED95AB-5058-4D61-9765-7D79D01ED5E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.Core", "AutoMoxture.Core\AutoMoxture.Core.csproj", "{12D500B3-BA3A-4F6F-910F-BA8125223CCE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.Testing", "Tests\AutoMoxture.Testing\AutoMoxture.Testing.csproj", "{629FF1A3-4135-4468-8030-2580201371DD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMoxture.Core.Tests", "Tests\AutoMoxture.Core.Tests\AutoMoxture.Core.Tests.csproj", "{948CBC4A-3CD5-4585-96D4-819D425B761F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,23 +40,14 @@ Global
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12D500B3-BA3A-4F6F-910F-BA8125223CCE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{629FF1A3-4135-4468-8030-2580201371DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{629FF1A3-4135-4468-8030-2580201371DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{629FF1A3-4135-4468-8030-2580201371DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{629FF1A3-4135-4468-8030-2580201371DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{948CBC4A-3CD5-4585-96D4-819D425B761F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{948CBC4A-3CD5-4585-96D4-819D425B761F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{948CBC4A-3CD5-4585-96D4-819D425B761F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{948CBC4A-3CD5-4585-96D4-819D425B761F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E70EC418-C2E7-4F4D-A2AD-ABB038711BFA} = {D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}
 		{44ED95AB-5058-4D61-9765-7D79D01ED5E1} = {D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}
 		{629FF1A3-4135-4468-8030-2580201371DD} = {D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}
-		{948CBC4A-3CD5-4585-96D4-819D425B761F} = {D3BDE4F4-DF7B-4DB5-86C4-D66A7BAB2646}
 	EndGlobalSection
 EndGlobal

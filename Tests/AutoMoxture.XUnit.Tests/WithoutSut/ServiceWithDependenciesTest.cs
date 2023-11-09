@@ -14,12 +14,12 @@ public class ServiceWithDependenciesTest : AutoMoxtureTest
     public void AutoMoxtureTest_ServiceWithDependencies()
     {
         // Arrange
-        string prefix = this.Fixture.Create<string>();
-        string demo2 = this.Fixture.Create<string>();
-        this.Fixture.Mock<IDependency2>()
+        string prefix = this.Create<string>();
+        string demo2 = this.Create<string>();
+        this.Mock<IDependency2>()
             .Setup(s => s.GetString())
             .Returns(demo2);
-        var sut = this.Fixture.Create<ServiceWithDependencies>();
+        var sut = this.Create<ServiceWithDependencies>();
 
         // Act
         var response = sut.Concat(prefix);

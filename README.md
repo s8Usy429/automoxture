@@ -71,11 +71,11 @@ public class ServiceWithDependenciesTests
     ...
 
     // Arrange
-    var mockDependency1 = this.Fixture.Create<Mock<IDependency1>>();
-    var mockDependency2 = this.Fixture.Create<Mock<IDependency2>>();
-    var mockDependency3 = this.Fixture.Create<Mock<IDependency3>>();
-    var mockDependency4 = this.Fixture.Create<Mock<IDependency4>>();
-    var mockDependency5 = this.Fixture.Create<Mock<IDependency5>>();
+    var mockDependency1 = this.Create<Mock<IDependency1>>();
+    var mockDependency2 = this.Create<Mock<IDependency2>>();
+    var mockDependency3 = this.Create<Mock<IDependency3>>();
+    var mockDependency4 = this.Create<Mock<IDependency4>>();
+    var mockDependency5 = this.Create<Mock<IDependency5>>();
     var sut = new ServiceWithDependencies(
         mockDependency1.Object,
         mockDependency2.Object,
@@ -99,7 +99,7 @@ fixture.Customize(new AutoMoqCustomization());
 var sut = fixture.Create<ServiceWithDependencies>();
 ```
 
-That's more or less what AutoMoxture is doing in its base class so you won't have to write this boilerplate code.
+That's more or less what AutoMoxture is doing in its base class so you won't have to write this boilerplate code anymore.
 
 1. Start by inheriting AutoMoxtureTest :
     ```cs
@@ -121,14 +121,14 @@ That's more or less what AutoMoxture is doing in its base class so you won't hav
     }
     ```
 
-3. AutoMoxture also exposes an instance of AutoFixture so regular/usual AutoFixture methods are accessible :
+3. AutoMoxture inherits AutoFixture so regular/usual AutoFixture methods are accessible :
     ```cs
     public class ServiceWithDependenciesTests : AutoMoxtureTest<ServiceWithDependencies>
     {
         ...
         
         // Arrange
-        var prefix = this.Fixture.Create<string>();
+        var prefix = this.Create<string>();
 
         // Act
         var response = this.Sut.Concat(prefix);
@@ -144,10 +144,10 @@ That's more or less what AutoMoxture is doing in its base class so you won't hav
         ...
 
         // Arrange
-        var prefix = this.Fixture.Create<string>();
+        var prefix = this.Create<string>();
 
-        var dependentString = this.Fixture.Create<string>();
-        this.Fixture.Mock<Dependency1>()
+        var dependentString = this.Create<string>();
+        this.Mock<Dependency1>()
             .Setup(m => m.GetString())
             .Returns(dependentString);
 
@@ -165,15 +165,15 @@ That's more or less what AutoMoxture is doing in its base class so you won't hav
         ...
 
         // Arrange
-        var prefix = this.Fixture.Create<string>();
+        var prefix = this.Create<string>();
 
-        var dependentString = this.Fixture.Create<string>();
-        this.Fixture.Mock<Dependency1>()
+        var dependentString = this.Create<string>();
+        this.Mock<Dependency1>()
             .Setup(m => m.GetString())
             .Returns(dependentString);
 
         // Act
-        var response = this.Fixture.Sut.Concat(prefix);
+        var response = this.Sut.Concat(prefix);
 
         // Assert
         response.Should().Contain(dependentString);
@@ -189,7 +189,7 @@ public class ServiceWithDependenciesTests : AutoMoxtureTest
 {
     public class ServiceWithDependenciesTests()
     {
-        this.Fixture.Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+        this.Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
     }
 }
 ```
@@ -201,7 +201,7 @@ public class ServiceWithDependenciesTests : AutoMoxtureTest
 {
     public void Test1()
     {
-        this.Fixture.Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+        this.Customize<TheTypeToCustomize>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
     }
 }
 ```
@@ -219,12 +219,4 @@ this.SutFactory = () => new TheSutType();
 
 // Do stuff with the new/latest SUT
 var sutAfterChange = this.Sut;
-```
-
-Note that the SUT will still keep its value after being reassigned:
-```cs
-this.SutFactory = () => new TheSutType();
-var sutAfterChange1 = this.Sut;
-var sutAfterChange2 = this.Sut;
-// Then sutAfterChange1 == sutAfterChange2
 ```
